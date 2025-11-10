@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\watanuki\\github\\AccountMake_C#_Desktop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{470E2C99-0D29-47A9-96B8-DC66778FAD74}|AccountMake\\AccountMake.csproj|c:\\users\\watanuki\\github\\accountmake_c#_desktop\\accountmake\\class\\dbaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{470E2C99-0D29-47A9-96B8-DC66778FAD74}|AccountMake\\AccountMake.csproj|solutionrelative:accountmake\\class\\dbaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DBAccess.cs",
+              "DocumentMoniker": "C:\\Users\\watanuki\\github\\AccountMake_C#_Desktop\\AccountMake\\class\\DBAccess.cs",
+              "RelativeDocumentMoniker": "AccountMake\\class\\DBAccess.cs",
+              "ToolTip": "C:\\Users\\watanuki\\github\\AccountMake_C#_Desktop\\AccountMake\\class\\DBAccess.cs",
+              "RelativeToolTip": "AccountMake\\class\\DBAccess.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T04:25:14.294Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -12,11 +12,7 @@ namespace AccountMake
     {
         #region<フィールド変数>
 
-        #region<mySQL接続情報>
-        //static string strServer = "133.8.68.51";
-        //static string strUser = "account";
-        //static string strPassword = "Qus@zu0n1K";
-        //static string strDBName = "account";
+        #region<mySQL接続情報>        
         //configファイルから接続情報を取得
         static string strServer = ConfigurationManager.ConnectionStrings["ServerIP"].ToString().Trim();
         static string strUser = ConfigurationManager.ConnectionStrings["User"].ToString().Trim();
