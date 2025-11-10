@@ -1,0 +1,200 @@
+﻿<Window x:Class="AccountMake.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountMake"
+        mc:Ignorable="d"
+        x:Name="winMain"
+        Title="全学アカウント作成支援アプリ" Height="1000" Width="910" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Grid x:Name="LayoutRoot" Background="#FF2B6F7A">
+
+            <TextBlock Text="参照テーブル" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="10,10,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="20" Width="100" FontSize="15" FontWeight="Heavy"/>
+            <ComboBox x:Name="cmbTableList" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="110,10,0,0" Width="180" Height="20" 
+                      FontSize="12" DropDownClosed="cmbTableList_DropDownClosed"/>
+
+            <Button x:Name="btnReflash" Content="データ再取得" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="308,10,0,0" 
+                    Height="20" Width="90" Click="btnReflash_Click"/>
+
+            <CheckBox x:Name="chkDevFlg" Content="事務職員表示" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="411,13,0,0" Foreground="White" IsChecked="False"/>
+
+            <Button x:Name="btnReference" Content="未申請・全学一覧参照" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="520,10,0,0" 
+                    Height="20" Width="120" Click="btnReference_Click"/>
+
+            <Button x:Name="btnMst" Content="所属変換テーブル更新" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="645,10,0,0" 
+                    Height="20" Width="120" Click="btnMst_Click"/>
+
+            <Button x:Name="btnMstAdd" Content="所属変換テーブル追加" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="770,10,0,0" 
+                    Height="20" Width="120" Click="btnMstAdd_Click"/>
+
+
+            <DataGrid x:Name="grdDBdata" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="11,40,0,0" Height="344" Width="874"
+                      IsReadOnly="True" MouseLeftButtonUp="grdDBdata_MouseLeftButtonUp"/>
+
+            <Grid x:Name="grdSerchAction" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,400,0,0" Height="550" Width="874">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="90" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border BorderBrush="White" BorderThickness="2" Grid.Row="1" Grid.RowSpan="7" Grid.ColumnSpan="6"/>
+
+                <TextBlock Text="検索条件" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="20" Width="100" FontSize="15" FontWeight="Heavy"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+                <TextBlock Text="ユーザID" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="2" Grid.Column="1"/>
+
+                <TextBox x:Name="txtUsr" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="200" FontSize="13" Grid.Row="2" Grid.Column="2" />
+
+                <TextBlock Text="職員番号" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="60" FontSize="15" Grid.Row="4" Grid.Column="1"/>
+
+                <TextBox x:Name="txtNo" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="60,0,0,0" 
+					     Height="25" Width="80" FontSize="13" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" />
+
+                <TextBlock Text="内線番号" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="70,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="60" FontSize="15" Grid.Row="4" Grid.Column="2"/>
+
+                <TextBox x:Name="txtNaisen" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="130,0,0,0" 
+					     Height="25" Width="70" FontSize="13" Grid.Row="4" Grid.Column="2"/>
+
+                <TextBlock Text="姓_漢字" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="60" FontSize="15" Grid.Row="6" Grid.Column="1"/>
+
+                <TextBox x:Name="txtSei" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="60,0,0,0" 
+					     Height="25" Width="50" FontSize="13" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                <TextBlock Text="名_漢字" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="40,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="60" FontSize="15" Grid.Row="6" Grid.Column="2"/>
+
+                <TextBox x:Name="txtMei" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="100,0,0,0" 
+					     Height="25" Width="50" FontSize="13" Grid.Row="6" Grid.Column="2"/>
+
+                <TextBlock Text="所属" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="160,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="60" FontSize="15" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="3"/>
+
+                <TextBox x:Name="txtFaculty" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="10,0,0,0" 
+					     Height="25" Width="80" FontSize="13" Grid.Row="6" Grid.Column="4"/>
+
+                <Button x:Name="btnSerch" Content="検索" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" 
+                        Height="60" Width="90" Grid.Row="2" Grid.RowSpan="5" Grid.Column="4" Click="btnReflash_Click"/>
+
+                <Border x:Name="BorCsvMake" BorderBrush="White" BorderThickness="2" Grid.Row="1" Grid.Column="7" Grid.RowSpan="7" Grid.ColumnSpan="9"/>
+
+                <TextBlock Text="CSV作成" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="20" Width="100" FontSize="15" FontWeight="Heavy"  Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="3"/>
+
+                <TextBlock Text="開始番号" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="2" Grid.Column="8"/>
+
+                <TextBox x:Name="txtselectstart" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="40" FontSize="13" Grid.Row="2" Grid.Column="9"/>
+
+                <TextBlock Text="～" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Height="25" Width="80" FontSize="25" Grid.Row="4" Grid.Column="8">
+                    <TextBlock.RenderTransform>
+                        <RotateTransform Angle="90" CenterX="50" CenterY="20"/>
+                    </TextBlock.RenderTransform>
+                </TextBlock>
+
+                <TextBlock Text="終了番号" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="6" Grid.Column="8"/>
+
+                <TextBox x:Name="txtselectend" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="40" FontSize="13" Grid.Row="6" Grid.Column="9"/>
+
+                <Button x:Name="btnSelect" Content="対象選択" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" 
+                        Height="95" Width="90" Grid.Row="2" Grid.RowSpan="5" Grid.Column="11" Click="btnSelect_Click"/>
+
+                <Button x:Name="btnCsvListMake" Content="CSV作成" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" 
+                        Height="95" Width="90" Grid.Row="2" Grid.RowSpan="5" Grid.Column="13" Click="btnCsvListMake_Click"/>
+
+                <CheckBox x:Name="chkexceptReFlg" Content="再申請除外" Grid.Row="2" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" Foreground="White" IsChecked="False"/>
+
+                <CheckBox x:Name="chkexceptExitFlg" Content="退職者除外" Grid.Row="4" Grid.Column="15" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,5,0,0" Foreground="White" IsChecked="False"/>
+
+                <TextBlock Text="アカウント作成補助" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,10,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="20" Width="180" FontSize="15" FontWeight="Heavy"  Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+                <Grid x:Name="grdMakeAction" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,30,0,0" Height="405" Width="874" Grid.Row="8" Grid.ColumnSpan="16">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="150" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="130" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="10" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="225*" />
+                        <ColumnDefinition Width="629*"/>
+                        <ColumnDefinition Width="10" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border BorderBrush="White" BorderThickness="2" Grid.Row="0" Grid.Column="0" Grid.RowSpan="9" Grid.ColumnSpan="4"/>
+
+                    <TextBlock Text="LDAP Manager用CSV" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="20" Width="180" FontSize="15" Grid.Row="1" Grid.Column="1"/>
+
+                    <DataGrid x:Name="grdCSV" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" Height="150" Width="854"
+                      IsReadOnly="True" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                    <TextBlock Text="AA作成用" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="20" Width="100" FontSize="15" Grid.Row="4" Grid.Column="1"/>
+
+                    <DataGrid x:Name="grdAA" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" Height="130" Width="854"
+                      Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                    <TextBlock Text="CSV作成先" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="100" FontSize="15" Grid.Row="7" Grid.Column="1"/>
+
+                    <TextBox x:Name="txtFolder" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="100,0,0,0" 
+					     Height="25" Width="600" FontSize="13" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                    <Button x:Name="btnFolderSerch" Content="参照" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="485,0,0,0" 
+                        Height="25" Width="50" Grid.Row="7" Grid.Column="2" Click="btnFolderSerch_Click"/>
+
+                    <Button x:Name="btnCsvMake" Content="CSV出力" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="545,0,0,0" 
+                        Height="25" Width="70" Grid.Row="7" Grid.Column="2" Click="btnCsvMake_Click"/>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>

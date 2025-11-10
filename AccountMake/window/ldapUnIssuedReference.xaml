@@ -1,0 +1,129 @@
+﻿<Window x:Class="AccountMake.Reference"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccountMake"
+        mc:Ignorable="d"
+        x:Name="winMstMain"
+        Title="変換テーブル" Height="580" Width="910" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Grid>
+        <Grid x:Name="LayoutRoot" Background="#FF2B6F7A">
+
+            <TextBlock Text="未申請者一覧" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="10,10,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="30" Width="140" FontSize="20" FontWeight="Heavy"/>
+
+            <DataGrid x:Name="grdUnIssueddata" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="11,40,0,0" Height="344" Width="390"
+                      IsReadOnly="True"/>
+
+            <TextBlock Text="全学アカウント一覧(職員)" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="420,10,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="30" Width="250" FontSize="20" FontWeight="Heavy"/>
+
+            <DataGrid x:Name="grdLdapdata" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="420,40,0,0" Height="344" Width="460"
+                      IsReadOnly="True"/>
+
+            <Grid x:Name="grdMstOpe" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,400,0,0" Height="135" Width="874">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="10" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="190" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="95" />
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="95" />
+                    <ColumnDefinition Width="10" />
+                </Grid.ColumnDefinitions>
+
+                <Border BorderBrush="White" BorderThickness="2" Grid.Row="1" Grid.RowSpan="8" Grid.ColumnSpan="6"/>
+
+                <TextBlock Text="未申請者検索条件" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="20" Width="130" FontSize="15" FontWeight="Heavy"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+                <TextBlock Text="職員番号" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="2" Grid.Column="1"/>
+
+                <TextBox x:Name="txtUnIssuedjimuid" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="190" FontSize="13" Grid.Row="2" Grid.Column="2" />
+
+                <TextBlock Text="氏名" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="4" Grid.Column="1"/>
+
+                <TextBox x:Name="txtUnIssuedname" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="190" FontSize="13" Grid.Row="4" Grid.Column="2"/>
+
+                <TextBlock Text="事務所属" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="6" Grid.Column="1"/>
+
+                <TextBox x:Name="txtUnIssuedfaculty" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="190" FontSize="13" Grid.Row="6" Grid.Column="2"/>
+
+                <Button x:Name="btnUnIssedSerch" Content="検索" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" 
+                        Height="95" Width="70" Grid.Row="2" Grid.RowSpan="5" Grid.Column="4" Click="btnUnIssedSerch_Click" />
+
+                <Border BorderBrush="White" BorderThickness="2" Grid.Row="1" Grid.Column="7" Grid.RowSpan="8" Grid.ColumnSpan="9"/>
+
+                <TextBlock Text="全学アカウント検索条件" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="20" Width="170" FontSize="15" FontWeight="Heavy"  Grid.Row="0" Grid.Column="7" Grid.ColumnSpan="4"/>
+
+                <TextBlock Text="ユーザID" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="2" Grid.Column="10"/>
+
+                <TextBox x:Name="txtldapid" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="100" FontSize="13" Grid.Row="2" Grid.Column="11" />
+
+                <TextBlock Text="氏名" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="4" Grid.Column="10"/>
+
+                <TextBox x:Name="txtldapname" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="100" FontSize="13" Grid.Row="4" Grid.Column="11" />
+
+                <TextBlock Text="職員番号" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="6" Grid.Column="10"/>
+
+                <TextBox x:Name="txtldapjimuid" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="100" FontSize="13" Grid.Row="6" Grid.Column="11" />
+
+                <TextBlock Text="全学所属" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="2" Grid.Column="13"/>
+
+                <TextBox x:Name="txtldapfaculty" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="100" FontSize="13" Grid.Row="2" Grid.Column="14"  />
+
+                <TextBlock Text="事務所属" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="4" Grid.Column="13"/>
+
+                <TextBox x:Name="txtjimufaclty" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="100" FontSize="13" Grid.Row="4" Grid.Column="14" />
+
+                <TextBlock Text="全学職種" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Center" Margin="0,0,0,0" 
+					   Foreground="AliceBlue" Background="#FF5CC7C7" Height="25" Width="80" FontSize="15" Grid.Row="6" Grid.Column="13"/>
+
+                <TextBox x:Name="txtldapoccupation" Text="" VerticalAlignment="Top" HorizontalAlignment="Left"  TextAlignment="Left" Margin="0,0,0,0" 
+					     Height="25" Width="100" FontSize="13" Grid.Row="6" Grid.Column="14" />
+
+                <Button x:Name="btnLdapSearch" Content="検索" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" 
+                        Height="95" Width="70" Grid.Row="2" Grid.RowSpan="5" Grid.Column="8" Click="btnLdapSearch_Click"/>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>
